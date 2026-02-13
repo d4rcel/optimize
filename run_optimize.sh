@@ -20,6 +20,12 @@ echo "Starting Image Optimization Workflow"
 echo "Using CSV: $CSV_FILE"
 echo "=========================================="
 
+# Cleanup previous run
+if [ -d "NEWUP" ]; then
+    echo "Cleaning up previous output (NEWUP folder)..."
+    rm -rf NEWUP
+fi
+
 echo "[1/3] Resizing images (process_images.py)..."
 python3 process_images.py "$CSV_FILE"
 if [ $? -ne 0 ]; then
