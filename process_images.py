@@ -1,9 +1,10 @@
 import csv
 import os
+import sys
 from pathlib import Path
 from PIL import Image
 
-CSV_FILE = 'optimisation_images_titabymtn.csv'
+CSV_FILE = sys.argv[1] if len(sys.argv) > 1 else 'optimisation_images_titabymtn.csv'
 SOURCE_DIR = 'UP'
 TARGET_DIR = 'NEWUP'
 

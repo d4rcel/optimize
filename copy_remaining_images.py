@@ -1,9 +1,10 @@
 import csv
 import os
 import shutil
+import sys
 from pathlib import Path
 
-CSV_FILE = 'optimisation_images_titabymtn.csv'
+CSV_FILE = sys.argv[1] if len(sys.argv) > 1 else 'optimisation_images_titabymtn.csv'
 UP_DIR = 'UP'
 NEWUP_DIR = 'NEWUP'
 
