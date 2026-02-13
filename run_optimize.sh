@@ -49,5 +49,8 @@ fi
 
 echo "=========================================="
 echo "Optimization Complete!"
-echo "Check the 'NEWUP' folder and 'final_images_paths.csv'."
+echo "Check the 'NEWUP' folder."
+echo "Generated reports:"
+echo "1. final_images_paths.csv (Local paths)"
+echo "2. final_images_urls.csv  (Production URLs)"
 echo "=========================================="
