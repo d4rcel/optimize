@@ -21,7 +21,7 @@ def main():
         
         reader = csv.DictReader(infile)
         writer = csv.writer(outfile)
-        writer.writerow(['image path'])
+        writer.writerow(['image path', 'Has been resizing'])
         
         count = 0
         
@@ -29,18 +29,21 @@ def main():
             original_path = row["Chemin de l'image"]
             resize_needed = row['Besoin de redimensionnement']
             
+            # Map French Oui/Non to Yes/No
+            has_been_resized = 'Yes' if resize_needed == 'Oui' else 'No'
+            
             webp_relative_path = get_webp_path(original_path)
             
             # Now all images should be in NEWUP
             candidate_path = os.path.join(NEWUP_DIR, webp_relative_path)
             
             if os.path.exists(candidate_path):
-                writer.writerow([candidate_path])
+                writer.writerow([candidate_path, has_been_resized])
                 count += 1
             else:
                 print(f"Warning: File not found in NEWUP: {candidate_path}")
                 # Write the expected NEWUP path even if missing, as per previous logic/request consistency
-                writer.writerow([candidate_path])
+                writer.writerow([candidate_path, has_been_resized])
                 count += 1
 
 
